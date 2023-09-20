@@ -1,0 +1,42 @@
+scalar Date
+
+type Query{
+    user(id: ID!): User
+    users: [User]
+
+}
+
+type Mutation{
+    createUser(input: CreateUserInput): User
+    createPost(input: CreatePostInput): Post
+}
+
+type User{
+    id: ID!
+    name: String!
+    birthDate: Date
+    posts: [Post]
+    createdAt: Date
+    updatedAt: Date
+}
+
+input CreateUserInput{
+    name: String!
+    birthDate: Date
+}
+
+input CreatePostInput{
+    title: String!
+    content: String!
+    userId: ID!
+}
+
+type Post{
+    id: ID!
+    title: String!
+    content: String!
+}
+
+
+
+
